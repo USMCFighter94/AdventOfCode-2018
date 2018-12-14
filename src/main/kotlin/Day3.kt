@@ -33,6 +33,21 @@ class Day3(override val adventOfCode: AdventOfCode) : Day {
     }
 
     override fun part2(): String {
-        return ""
+        input.forEach { coordinate ->
+            var noOverlap = true
+            outerLoop@for (i in coordinate.left until coordinate.left + coordinate.width) {
+                for (j in coordinate.top until coordinate.top + coordinate.height) {
+                    if (grid[i][j] > 1) {
+                        noOverlap = false
+                        continue@outerLoop
+                    }
+                }
+            }
+            if (noOverlap) {
+                return "${coordinate.id}"
+            }
+        }
+
+        return "Didn't find a Coordinate without overlap"
     }
 }
