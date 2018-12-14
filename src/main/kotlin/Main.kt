@@ -9,7 +9,8 @@ fun main(args: Array<String>) {
     val adventOfCode = AdventOfCode(args[0])
     val list = listOf(
         Day1(adventOfCode),
-        Day2(adventOfCode)
+        Day2(adventOfCode),
+        Day3(adventOfCode)
     )
 
     list.forEach { day ->
